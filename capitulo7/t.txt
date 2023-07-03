@@ -1,0 +1,70 @@
+//worker
+using Compos.Entities.Enums;
+
+namespace Compos.Worker
+{
+    class Worker
+    {
+        public string Name { get; set; }
+        public WorkLevel Level { get; set; }
+        public double BaseSalary { get; set; }
+        public Department Department { get; set; }
+
+    }
+}
+//worklevel
+namespace Compos.Entities.Enums
+{
+    enum WorkLevel : int
+    {
+        Junior = 0,
+        MidLevel = 1,
+        Senior = 2
+    }
+}
+//HourContract
+using System;
+
+
+namespace Compos.HourContract
+{
+    class HourContract
+    {
+        public DateTime Date { get; set; }
+        public double ValuePerHour { get; set; }
+        public int Hours { get; set; }
+
+        public HourContract()
+        {
+
+        }
+        public HourContract(DateTime date, double valuePerHour, int hours)
+        {
+            Date = date;
+            ValuePerHour = valuePerHour;
+            Hours = hours;
+        }
+
+        public double TotValue()
+        {
+            return Hours * ValuePerHour;
+        }
+    }
+}
+//department
+namespace Compos.Department
+{
+    class Department
+    {
+        public string Name { get; set; }
+
+        public Department()
+        {
+
+        }
+        public Department(string name)
+        {
+            Name = name;
+        }
+    }
+}

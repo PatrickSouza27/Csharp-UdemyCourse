@@ -1,0 +1,45 @@
+namespace ExercicioFic
+{
+    class Program
+    {
+        static void Main()
+        {
+            Quartos[] vet = new Quartos[10];
+            int qtdEstudante;
+
+            Console.Write("How many rooms will be rented?");
+            qtdEstudante = int.Parse(Console.ReadLine());
+
+            for (int i = 1; i <= qtdEstudante; i++)
+            {
+                Console.WriteLine("\n\nRent #{0}", i + 1);
+                Console.Write("Name: ");
+                string nome = Console.ReadLine();
+                Console.Write("Email: ");
+                string gmail = Console.ReadLine();
+                Console.Write("Room: ");
+                int getQuarto = int.Parse(Console.ReadLine());
+                vet[i] = new Quartos { Nome = nome, Gmail = gmail, Quarto = getQuarto };
+            }
+            Console.WriteLine("\nBusy rooms:");
+            for (int i = 0; i < 10; i++)
+            {
+                if (vet[i] != null)
+                {
+                    Console.WriteLine($"{vet[i].Quarto}: {vet[i].Nome}, {vet[i].Gmail}");
+                }
+
+            }
+        }
+    }
+}
+
+namespace ExercicioFic1
+{
+    internal class Quarto
+    {
+        public string? Nome;
+        public string? Gmail;
+        public int Quartos;
+    }
+}
